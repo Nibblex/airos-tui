@@ -1,0 +1,8 @@
+Bridge table: filter
+
+Bridge chain: FIREWALL, entries: 5, policy: RETURN
+-p IPv6 -j FIREWALL6, pcnt = 0 -- bcnt = 0
+-p IPv4 -i ath0 --ip-proto udp --ip-sport 67 --ip-dport 68 -j DROP , pcnt = 0 -- bcnt = 0
+-p IPv4 --ip-src ! 192.168.1.0/24 --ip-proto tcp --ip-dport 1000:2000 -j ACCEPT , pcnt = 0 -- bcnt = 0
+-p IPv4 -o eth0 --ip-dst 10.0.0.0/8 --ip-proto icmp -j DROP , pcnt = 0 -- bcnt = 0
+-p IPv4 -j ACCEPT , pcnt = 20 -- bcnt = 4841

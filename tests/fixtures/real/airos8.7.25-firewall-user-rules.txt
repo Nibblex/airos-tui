@@ -1,0 +1,4 @@
+Bridge table: filter
+
+Bridge chain: FIREWALL, entries: 1, policy: RETURN
+-p IPv4 -i ath0 --ip-proto udp --ip-sport 67 --ip-dport 68 -j DROP , pcnt = 0 -- bcnt = 0

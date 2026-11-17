@@ -1,0 +1,51 @@
+[build-system]
+# (hatchling 1.27 or newer: license = "GPL-3.0-only", as PEP 639 writes it)
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "airos-tui"
+dynamic = ["version"]
+description = "Terminal UI to configure Ubiquiti airMAX antennas (airOS 8 and airOS 6) as their own web does"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+authors = [{ name = "Sergio Rodríguez", email = "srodriguez3441@gmail.com" }]
+keywords = ["ubiquiti", "airmax", "airos", "tui", "dialog", "wisp", "antenna"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console :: Curses",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Telecommunications Industry",
+    "Natural Language :: English",
+    "Natural Language :: Spanish",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: System :: Networking",
+]
+# (only the standard library; on screen, the dialog program, or whiptail)
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Nibblex/airos-tui"
+Issues = "https://github.com/Nibblex/airos-tui/issues"
+
+[project.scripts]
+airos-tui = "airos_tui.cli:main"
+airos-tui-simulator = "airos_simulator:main"
+
+[tool.hatch.version]
+path = "airos_tui/__init__.py"
+
+[tool.hatch.build]
+exclude = ["**/__pycache__", "*.pyc"]
+
+[tool.hatch.build.targets.wheel]
+# the program (with its translations, locales/*.json) and the simulator, to try it
+only-include = ["airos_tui", "airos_simulator"]
+
+[tool.hatch.build.targets.sdist]
+only-include = ["airos_tui", "airos_simulator", "docs", "tests", "README.md", "LICENSE",
+                "ruff.toml", "pyproject.toml"]

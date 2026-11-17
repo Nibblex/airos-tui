@@ -1,0 +1,9 @@
+Chain PREROUTING (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DNAT       tcp  --  br0    *       0.0.0.0/0            0.0.0.0/0            tcp dpt:2222 to:192.168.1.100:22
+    0     0 DNAT       udp  --  br0    *       10.0.0.0/8           0.0.0.0/0            udp dpts:5000:5010 to:192.168.1.100
+
+
+Chain POSTROUTING (1 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 SNAT       tcp  --  *      br0     0.0.0.0/0            192.168.1.100        tcp dpt:22 to:192.168.1.1

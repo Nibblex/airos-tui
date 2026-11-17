@@ -1,0 +1,36 @@
+# Style checks of airos-tui with ruff (https://docs.astral.sh/ruff/), as its code follows
+# them; from this folder:
+#     ruff check
+# Not the order of the imports: those of the standard library go sorted, and the package's in
+# the order they build on one another (i18n, errors and config first, the screens last), which
+# ruff's isort would sort by name (it may matter: modules that import one another), putting
+# each wrapped import one name per line.
+line-length = 100
+target-version = "py310"
+
+[lint]
+select = ["E", "W", "F", "B", "UP", "SIM", "PLW", "RUF"]
+ignore = [
+    "B023",     # a function defined in a loop is called in that same pass (_ask_text…)
+    "B905",     # zip() of sequences equal by construction, or stopping at the shorter one on
+                # purpose (a device that gives fewer values): strict would only add a crash
+    "SIM102",   # a question inside an elif branch stays nested: joined, a "No" would go on
+                # to the branches after it
+    "SIM105",   # try/except/pass, as written (contextlib.suppress where it reads better)
+    "SIM118",   # Config.keys() is a list (a copy: the configuration can change while going
+                # through it), and a Config is not iterable
+    "RUF001", "RUF002", "RUF003",   # its texts use « », ’ and the like on purpose
+    "RUF005",   # [a] + b, as written
+    "RUF012",   # class constants (dicts and lists nothing changes)
+    "RUF015",   # list(x)[0] where it reads better
+    "RUF100",   # its "noqa: E402" are for flake8 and pycodestyle (ruff lets sys.path change
+                # before the imports)
+    "PLW0603",  # a module's own state (the language's catalog, --debug's file)
+]
+
+[lint.per-file-ignores]
+"tests/*" = [
+    "SIM115",   # open() without with: CPython closes it at once
+    "RUF059",   # values a check does not need, unpacked with the rest
+    "PLW1510",  # subprocess.run without check: each test checks its return code itself
+]

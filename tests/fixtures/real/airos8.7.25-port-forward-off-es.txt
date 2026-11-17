@@ -1,0 +1,1 @@
+El redireccionamiento de puertos está desactivado, no es posible mostrar las reglas del redireccionamiento de puertos.

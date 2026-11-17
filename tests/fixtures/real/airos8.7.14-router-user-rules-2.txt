@@ -1,0 +1,5 @@
+Chain FIREWALL (2 references)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 DROP       icmp --  *      *       10.1.2.3             0.0.0.0/0           
+   26  5365 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+    0     0 DROP       tcp  --  *      br0     0.0.0.0/0            8.8.8.8              tcp spts:!1024:65535 dpt:25
