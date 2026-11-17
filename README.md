@@ -226,10 +226,10 @@ NanoStation 5AC loco and LiteBeam 5AC Gen2 antennas.
 Copyright © 2026 Sergio Rodríguez.
 
 This program is free software: you can redistribute it and/or modify it under the terms of
-the [GNU General Public License, version 3](LICENSE) (GPL-3.0-only), as published by the
-Free Software Foundation. It is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE.
+the [GNU General Public License, version 3][gpl] (GPL-3.0-only), as published by the Free
+Software Foundation. It is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.
 
 The sample data in `tests/fixtures/python-airos/` comes from the python-airos project, under
 its own MIT license (`tests/fixtures/python-airos/LICENSE`).
@@ -238,3 +238,4 @@ Not affiliated with or endorsed by Ubiquiti Inc. Ubiquiti, airMAX, airOS and UIS
 trademarks of Ubiquiti Inc.
 
 [dialog]: https://invisible-island.net/dialog/
+[gpl]: https://github.com/Nibblex/airos-tui/blob/main/LICENSE
